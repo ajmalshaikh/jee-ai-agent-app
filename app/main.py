@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.agents.tutor import tutor_agent
-from app.agents.quiz import quiz_agent
+from agents.tutor import tutor_agent
+from agents.quiz import quiz_agent
 
 app = FastAPI()
 
