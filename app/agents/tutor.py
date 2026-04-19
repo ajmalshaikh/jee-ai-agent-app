@@ -1,4 +1,5 @@
-from app.services.gemini import call_gemini
+# ✅ correct
+from services.gemini import call_gemini
 
 def tutor_agent(topic):
     prompt = f"""
