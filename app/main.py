@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get("/")
 def home():
-    return {"message": "JEE AI Agent Running"}
+    return {"message": "App is running"}
 
 @app.get("/tutor")
 def tutor(topic: str):
