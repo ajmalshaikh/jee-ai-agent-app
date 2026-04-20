@@ -27,7 +27,3 @@ jobs:
           --platform=managed \
           --allow-unauthenticated \
           --set-env-vars=GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
-
-          --allow-unauthenticated
-          
-          --set-env-vars GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
