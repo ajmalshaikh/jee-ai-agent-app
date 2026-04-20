@@ -21,8 +21,9 @@ jobs:
 
     - name: Deploy to Cloud Run
       run: |
-        gcloud run deploy ${{ secrets.SERVICE_NAME }} \
-          --image=${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GAR_REPO }}/jee-ai-agent:${{ github.sha }} \
-          --region=${{ secrets.GCP_REGION }} \
-          --platform=managed \
-          --allow-unauthenticated
+        gcloud run deploy $SERVICE_NAME \
+          --image $IMAGE \
+          --region $GCP_REGION \
+          --platform managed \
+          --allow-unauthenticated \
+          --set-env-vars GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
