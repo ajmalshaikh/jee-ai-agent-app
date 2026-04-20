@@ -19,11 +19,15 @@ jobs:
     - name: Set up gcloud
       uses: google-github-actions/setup-gcloud@v2
 
-  - name: Deploy to Cloud Run
+    - name: Deploy to Cloud Run
       run: |
         gcloud run deploy ${{ secrets.SERVICE_NAME }} \
           --image=${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GAR_REPO }}/jee-ai-agent:${{ github.sha }} \
           --region=${{ secrets.GCP_REGION }} \
           --platform=managed \
           --allow-unauthenticated
+          --set-env-vars GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
+
+          --allow-unauthenticated
+          
           --set-env-vars GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
