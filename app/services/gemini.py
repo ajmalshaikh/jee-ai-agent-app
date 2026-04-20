@@ -8,12 +8,13 @@ def call_gemini(prompt: str) -> str:
             location="us-central1"
         )
 
-        model = GenerativeModel("gemini-1.5-flash")
+        # ✅ Use stable model
+        model = GenerativeModel("gemini-1.0-pro")
 
         response = model.generate_content(prompt)
 
-        return response.text
+        return response.text if response.text else "No response from AI"
 
     except Exception as e:
-        print(f"Gemini error: {e}")
-        return "AI service is temporarily unavailable. Showing fallback explanation."
+        print(f"Gemini FULL ERROR: {str(e)}")
+        return f"Fallback triggered. Error: {str(e)}"
