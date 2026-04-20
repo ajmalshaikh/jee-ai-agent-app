@@ -1,17 +1,13 @@
-import vertexai
-from vertexai.generative_models import GenerativeModel
+from google import genai
 
 def call_gemini(prompt: str) -> str:
     try:
-        vertexai.init(
-            project="my-jee-ai-project",
-            location="us-central1"
+        client = genai.Client()
+
+        response = client.models.generate_content(
+            model="gemini-1.5-flash",
+            contents=prompt
         )
-
-        # ✅ Use stable model
-        model = GenerativeModel("gemini-1.0-pro")
-
-        response = model.generate_content(prompt)
 
         return response.text if response.text else "No response from AI"
 
