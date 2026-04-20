@@ -3,7 +3,6 @@ from vertexai.generative_models import GenerativeModel
 
 def call_gemini(prompt: str) -> str:
     try:
-        # Initialize Vertex AI
         vertexai.init(
             project="my-jee-ai-project",
             location="asia-south1"
